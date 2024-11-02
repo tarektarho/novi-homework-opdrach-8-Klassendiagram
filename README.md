@@ -35,25 +35,25 @@ De volgende klassendiagram geeft een gedetailleerd overzicht van de klassenstruc
 
 ```mermaid
 classDiagram
-    %% Basisklasse: User
+    %% Base Class: User
     class User {
-        +userID: int
-        +username: String
-        +password: String
+        -userID: int
+        -username: String
+        -password: String
         +role: String
         +contactInfo: String
     }
 
-    %% AdminUser Klasse
+    %% AdminUser Class
     class AdminUser {
-        +purchaseRecords: List
+        -purchaseRecords: List
         +adminPermissions: String
         +viewInventory(): void
         +manageEmployeeRecords(): void
         +updateInventoryPricing(): void
     }
     
-    %% SalesManager Klasse
+    %% SalesManager Class
     class SalesManager {
         +salesReportAccess: String
         +stockOverviewAccess: String
@@ -62,69 +62,69 @@ classDiagram
         +checkStockLevels(): void
     }
 
-    %% WarehouseManager Klasse
+    %% WarehouseManager Class
     class WarehouseManager {
-        +warehouseLocationData: String
-        +inventoryStatus: String
+        -warehouseLocationData: String
+        -inventoryStatus: String
         +trackInventoryLocation(): void
         +manageWarehouseStock(): void
     }
     
-    %% Employee Klasse
+    %% Employee Class
     class Employee {
-        +department: String
+        -department: String
         +permissions: String
         +performAssignedTask(): void
     }
     
-    %% Client Klasse
+    %% Client Class
     class Client {
-        +clientID: int
-        +orderHistory: List
+        -clientID: int
+        -orderHistory: List
         +placeOrder(): void
         +viewOrderHistory(): void
     }
 
-    %% Product Klasse
+    %% Product Class
     class Product {
-        +productID: int
+        -productID: int
         +name: String
         +category: String
         +price: float
-        +stockLevel: int
+        -stockLevel: int
         +getProductDetails(): void
         +updateStockLevel(): void
     }
     
-    %% Inventory Klasse
+    %% Inventory Class
     class Inventory {
-        +inventoryID: int
-        +productList: List
+        -inventoryID: int
+        -productList: List
         +location: String
         +addProduct(): void
         +removeProduct(): void
         +checkCompatibility(): Boolean
     }
     
-    %% Order Klasse
+    %% Order Class
     class Order {
-        +orderID: int
+        -orderID: int
         +date: Date
-        +customerID: int
-        +productList: List
+        -customerID: int
+        -productList: List
         +totalPrice: float
         +createOrder(): void
         +calculateTotalPrice(): float
     }
 
-    %% Erfenisrelaties
+    %% Inheritance Relationships
     AdminUser --|> User
     SalesManager --|> User
     WarehouseManager --|> User
     Employee --|> User
     Client --|> User
 
-    %% Associaties
+    %% Associations
     User "1" -- "many" Order : places
     Inventory "1" -- "many" Product : contains
     Order "1" -- "many" Product : includes
