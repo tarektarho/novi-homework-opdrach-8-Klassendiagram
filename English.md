@@ -38,16 +38,16 @@ The following class diagram provides a detailed view of the system’s class str
 classDiagram
     %% Base Class: User
     class User {
-        +userID: int
-        +username: String
-        +password: String
+        -userID: int
+        -username: String
+        -password: String
         +role: String
         +contactInfo: String
     }
 
     %% AdminUser Class
     class AdminUser {
-        +purchaseRecords: List
+        -purchaseRecords: List
         +adminPermissions: String
         +viewInventory(): void
         +manageEmployeeRecords(): void
@@ -65,42 +65,42 @@ classDiagram
 
     %% WarehouseManager Class
     class WarehouseManager {
-        +warehouseLocationData: String
-        +inventoryStatus: String
+        -warehouseLocationData: String
+        -inventoryStatus: String
         +trackInventoryLocation(): void
         +manageWarehouseStock(): void
     }
     
     %% Employee Class
     class Employee {
-        +department: String
+        -department: String
         +permissions: String
         +performAssignedTask(): void
     }
     
     %% Client Class
     class Client {
-        +clientID: int
-        +orderHistory: List
+        -clientID: int
+        -orderHistory: List
         +placeOrder(): void
         +viewOrderHistory(): void
     }
 
     %% Product Class
     class Product {
-        +productID: int
+        -productID: int
         +name: String
         +category: String
         +price: float
-        +stockLevel: int
+        -stockLevel: int
         +getProductDetails(): void
         +updateStockLevel(): void
     }
     
     %% Inventory Class
     class Inventory {
-        +inventoryID: int
-        +productList: List
+        -inventoryID: int
+        -productList: List
         +location: String
         +addProduct(): void
         +removeProduct(): void
@@ -109,10 +109,10 @@ classDiagram
     
     %% Order Class
     class Order {
-        +orderID: int
+        -orderID: int
         +date: Date
-        +customerID: int
-        +productList: List
+        -customerID: int
+        -productList: List
         +totalPrice: float
         +createOrder(): void
         +calculateTotalPrice(): float
