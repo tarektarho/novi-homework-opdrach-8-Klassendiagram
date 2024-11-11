@@ -36,12 +36,13 @@ De volgende klassendiagram geeft een gedetailleerd overzicht van de klassenstruc
 ```mermaid
 classDiagram
     class User {
+        -id : Long
         -username : String
         -password : String
-        -adres : String
-        -functie : String
-        -loonschaal : Integer
-        -vakantiedagen : Integer
+        -address : String
+        -role : String
+        -salaryScale : Integer
+        -vacationDays : Integer
     }
 
     class Product {
@@ -62,10 +63,12 @@ classDiagram
     Product <|-- WallBracket
 
     class Television {
+        -id : Long
+        -product_id : Long
         -height : Double
         -width : Double
-        -schermKwaliteit : String
-        -schermType : String
+        -screenQuality : String
+        -screenType : String
         -wifi : Boolean
         -smartTv : Boolean
         -voiceControl : Boolean
@@ -73,18 +76,24 @@ classDiagram
     }
 
     class RemoteController {
+        -id : Long
+        -product_id : Long
         -smart : Boolean
         -batteryType : String
     }
 
     class CIModule {
+        -id : Long
+        -product_id : Long
         -provider : String
         -encoding : String
     }
 
     class WallBracket {
+        -id : Long
+        -product_id : Long
         -adjustable : Boolean
-        -bevestigingsmethode : BevestigingsMethode
+        -mountingMethod : MountingMethod
         -height : Double
         -width : Double
     }
