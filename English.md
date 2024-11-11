@@ -35,6 +35,7 @@ The following class diagram provides a detailed overview of the system's class s
 ```mermaid
 classDiagram
     class User {
+        -id : Long
         -username : String
         -password : String
         -address : String
@@ -61,6 +62,8 @@ classDiagram
     Product <|-- WallBracket
 
     class Television {
+        -id : Long
+        -product_id : Long
         -height : Double
         -width : Double
         -screenQuality : String
@@ -72,16 +75,22 @@ classDiagram
     }
 
     class RemoteController {
+        -id : Long
+        -product_id : Long
         -smart : Boolean
         -batteryType : String
     }
 
     class CIModule {
+        -id : Long
+        -product_id : Long
         -provider : String
         -encoding : String
     }
 
     class WallBracket {
+        -id : Long
+        -product_id : Long
         -adjustable : Boolean
         -mountingMethod : MountingMethod
         -height : Double
